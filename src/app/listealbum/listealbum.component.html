@@ -1,0 +1,19 @@
+<mat-card>
+  <form #idform="ngForm">
+    <mat-form-field>
+      <input id="nom" ngModel name="nom" matInput placeholder="titreAlbum" #inom="ngModel" required>
+    </mat-form-field>
+    <input type="submit" (click)="chercherAlbum(idform.value.nom); idform.reset()"  [disabled]="!idform.valid">
+  </form>
+</mat-card>
+
+<mat-grid-list cols="3">
+  <mat-grid-tile *ngFor="let alb of albums let i=index">
+    <mat-card > 
+      <mat-card-header>
+        <mat-card-title></mat-card-title>
+      </mat-card-header>
+      <a [routerLink]="['/album' , alb.id]"><img src= "{{ alb.images[0].url }}"></a>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

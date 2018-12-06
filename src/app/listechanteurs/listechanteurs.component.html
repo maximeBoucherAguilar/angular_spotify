@@ -1,0 +1,20 @@
+<mat-card>
+    <form #idform="ngForm">
+      <mat-form-field>
+        <input id="nom" ngModel name="nom" matInput placeholder="titreChanteur" #inom="ngModel" required>
+      </mat-form-field>
+      <input type="submit" (click)="chercherChanteur(idform.value.nom); idform.reset()"  [disabled]="!idform.valid">
+    </form>
+  </mat-card>
+  
+  <mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let chanteur of chanteur">
+      <mat-card > 
+        <mat-card-header>
+          <mat-card-title></mat-card-title>
+        </mat-card-header>
+        <div>{{ chanteur.name }}</div>
+        <img *ngIf="chanteur.images!=0" src="{{chanteur.images[2].url}}">
+      </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

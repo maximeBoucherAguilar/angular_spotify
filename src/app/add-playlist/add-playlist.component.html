@@ -1,0 +1,13 @@
+<mat-card>
+  <form #idform="ngForm">
+    <mat-form-field>
+      <input id="name" ngModel name="name" matInput placeholder="Playlist Name"required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea id="desc" ngModel name="desc" matInput placeholder="Description"></textarea>
+    </mat-form-field>
+
+    <input type="submit" (click)="addPlaylist(idform.value.name,idform.value.desc); idform.reset()"  [disabled]="!idform.valid">
+  </form>
+</mat-card>

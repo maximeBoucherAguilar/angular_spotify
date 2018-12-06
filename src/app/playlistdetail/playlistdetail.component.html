@@ -1,0 +1,15 @@
+<div>
+  <div *ngIf="detPlaylist.name != null">
+    {{detPlaylist.name}}
+  </div>
+  <img *ngIf="detPlaylist.images[0].url != null" src= "{{detPlaylist.images[0].url }}">
+  <div>
+    <mat-list>
+      <mat-list-item *ngFor="let track of trackList let i=index">
+        {{track.track.name}}
+        <audio *ngIf="track.track.preview_url != null" id="AudioSong" controls src="{{track.track.preview_url}}">pas supporté</audio>
+        <button><mat-icon (click)="deleteFromPlaylist(i,track.track.uri)">delete</mat-icon></button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

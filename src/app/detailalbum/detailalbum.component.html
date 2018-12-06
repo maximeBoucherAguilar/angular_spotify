@@ -1,0 +1,22 @@
+<div>
+  <p *ngIf="detAlbum.artists[0].name != null">
+    {{detAlbum.artists[0].name}}
+  </p>
+  <img *ngIf="detAlbum.images[0].url != null" src= "{{detAlbum.images[0].url }}">
+  <div>
+    <mat-list>
+      <mat-list-item *ngFor="let i of trackList">
+        {{i.name}}
+        <audio *ngIf="i.preview_url != null" id="AudioSong" controls src="{{i.preview_url}}">pas supporté</audio>
+        <mat-menu #add="matMenu">
+          <mat-nav-list *ngFor="let playlist of playlist">
+              <button mat-button (click)="addToPlaylist(playlist.id,i.uri)">{{ playlist.name }}</button>
+          </mat-nav-list>
+        </mat-menu>
+        <button [matMenuTriggerFor]="add">
+          <mat-icon >add</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

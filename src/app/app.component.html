@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <mat-toolbar color="basic">
+    <mat-toolbar-row>
+      <button type="button" mat-icon-button (click)="drawer.toggle()" color="basic">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Utilisation de spotify</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #drawer mode="side" opened role="navigation">
+      <mat-nav-list>
+        <a mat-list-item routerLink="accueil" >Accueil</a>
+        <a mat-list-item routerLink="listealbum">Liste Album</a>
+        <a mat-list-item routerLink="listechanteur">Chanteur</a>
+        <a mat-list-item [matMenuTriggerFor]="createPlaylist">Playlist</a>
+        <mat-menu #createPlaylist="matMenu">
+          <a mat-menu-item routerLink="playlist">Mes Playlists</a>
+          <a mat-menu-item routerLink="newPlaylist">Créer Playlist</a>
+        </mat-menu>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <h2>Hello !</h2>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
+
+
